@@ -51,5 +51,8 @@ COPY --from=builder /app/packages ./packages
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/characters ./characters
 
+# Expose the port
+EXPOSE 3000
+
 # Set the command to run the application
-CMD ["pnpm", "start", "--non-interactive"]
+CMD ["pnpm", "start", "--character=characters/altero.character.json", "--non-interactive"]
